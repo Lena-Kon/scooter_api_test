@@ -1,5 +1,6 @@
 SELECT c.login, COUNT(*)
 FROM "Couriers"
-    c INNER JOIN "Orders" o ON (o."courierId" = c.id)
-    AND o."inDelivery" = true
+      AS c INNER JOIN "Orders"
+      AS o ON o."courierId" = c.id
+   WHERE o."inDelivery" = true
 GROUP BY c.login;
